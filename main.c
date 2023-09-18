@@ -38,5 +38,12 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
+
+_printf("\n \\n \t \\t \n");
+printf("\n \\n \t \\t \n");
+
+
+
+
     return (0);
 }
