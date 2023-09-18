@@ -1,59 +1,90 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
- * _printf - a function that produces output according to a format.
- * @format: const char formated input
- * Return: characters printed
+ * get_specifier -  the specifiers characters & the output's function
+ * @format: The format string
+ *
+ * Return: The specifier character or 0 if not found
  */
+int get_specifier(const char *format)
+{
+	int r = 0;
+	char specifier;
+
+	while (format[r])
+{
+	if (format[r] == '%')
+{
+	r++;
+	while (format[r])
+{
+	if (format[r] == 'c' || format[r] == 's' ||
+	format[r] == '%' || format[r] == 'd' ||
+ 	format[r] == 'i' || format[r] == 'b' ||
+	format[r] == 'u')
+{
+	return (format[r]);
+}
+	r++;
+}
+}
+	r++;
+}
+	return (0);
+}
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int r = 0;
 	int characters_printed = 0;
+	va_list arg;
 
-	va_list(arg);
-
-	if (format == NULL)
-		return (-1);
+	if (format == 0)
+	return (-1);
+    
 	va_start(arg, format);
-	while (format && format[i])
-	{
-		if (format[i] != '%')
-		{
-			characters_printed += _putchar(format[i]);
-		}
-		else if (format[i] == '%')
-		{
-			i++;
-			switch (format[i])
-			{
-				case 'c':
-					characters_printed += print_char(arg);
-					break;
-				case 's':
-					characters_printed += print_string(arg);
-					break;
-				case '%':
-					characters_printed += print_percent();
-					break;
-				case 'd':
-					characters_printed += print_decimal(arg);
-					break;
-				case 'i':
-					characters_printed += print_decimal(arg);
-					break;
-				case 'b':
-					characters_printed += print_binary(arg);
-					break;
-				case 'u':
-					characters_printed += print_unsignedint(arg);
-					break;
-				default:
-					break;
-			}
-		}
-		i++;
-	}
+
+	while (format && format[r])
+{
+	if (format[r] != '%')
+{
+	characters_printed += _putchar(format[r]);
+}
+        else if (format[r] == '%')
+{
+	r++;
+	char specifier = get_specifier(format + r);
+            
+	switch (specifier)
+{
+	case 'c':
+	characters_printed += print_char(va_arg(arg, int));
+	break;
+	case 's':
+	characters_printed += print_string(va_arg(arg, char *));
+	break;
+	case '%':
+	characters_printed += print_percent();
+	break;
+	case 'd':
+	case 'i':
+	characters_printed += print_decimal(va_arg(arg, int));
+	break;
+	case 'b':
+	characters_printed += print_binary(va_arg(arg, int));
+	break;
+	case 'u':
+	characters_printed += print_unsignedint(va_arg(arg, unsigned int));
+	break;
+	default:
+	break;
+}
+	r += 1;
+}
+	r++;
+}
+    
 	va_end(arg);
 	return (characters_printed);
 }
