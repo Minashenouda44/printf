@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 				characters_printed += print_decimal(arg);
 			else if (format[i + 1] == 'b')
 				characters_printed += print_binary(arg);
-			else if (format[i] + 1 == 'u')
+			else if (format[i + 1] == 'u')
 				characters_printed += print_unsignedint(arg);
 			else
 			{
