@@ -21,13 +21,15 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 			characters_printed += _putchar(format[i]);
 
-		else if (format[i] == '%' && format[i + 1] != '\0')
-			characters_printed += specifiers(format[i + 1], arg);
+		else if (format[i + 1] != '\0')
+		{
+			i++;
+			characters_printed += specifiers(format[i], arg);
+		}
 
 		else
 		{
 			characters_printed += _putchar('%');
-			characters_printed += _putchar(format[i]);
 		}
 	}
 	va_end(arg);

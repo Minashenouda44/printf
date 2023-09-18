@@ -15,9 +15,7 @@ int specifiers(char specifier, va_list arg)
 		return (print_string(arg));
 	else if (specifier == '%')
 		return (print_percent());
-	else if (specifier == 'd')
-		return (print_decimal(arg));
-	else if (specifier == 'i')
+	else if (specifier == 'd' || specifier == 'i')
 		return (print_decimal(arg));
 	else if (specifier == 'b')
 		return (print_binary(arg));
