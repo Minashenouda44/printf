@@ -6,6 +6,10 @@
 
 #include <stdarg.h>
 
+
+int get_specifier(char x);
+
+
 int _putchar(char c);
 int print_char(va_list arg);
 int print_string(va_list arg);

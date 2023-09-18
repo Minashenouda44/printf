@@ -25,32 +25,7 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-				case 'c':
-					characters_printed += print_char(arg);
-					break;
-				case 's':
-					characters_printed += print_string(arg);
-					break;
-				case '%':
-					characters_printed += print_percent();
-					break;
-				case 'd':
-					characters_printed += print_decimal(arg);
-					break;
-				case 'i':
-					characters_printed += print_decimal(arg);
-					break;
-				case 'b':
-					characters_printed += print_binary(arg);
-					break;
-				case 'u':
-					characters_printed += print_unsignedint(arg);
-					break;
-				default:
-					break;
-			}
+			characters_printed += get_specifier(format[i]);
 		}
 		i++;
 	}
