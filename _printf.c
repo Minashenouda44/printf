@@ -15,34 +15,19 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
+
 	for (i = 0 ; format && format[i] != '\0' ; i++)
 	{
 		if (format[i] != '%')
-		{
 			characters_printed += _putchar(format[i]);
-		}
-		else if (format[i] == '%')
+
+		else if (format[i] == '%' && format[i + 1] != '\0')
+			characters_printed += specifiers(format[i + 1], arg);
+
+		else
 		{
-			i++;
-			if (format[i] == 'c')
-				characters_printed += print_char(arg);
-			else if (format[i] == 's')
-				characters_printed += print_string(arg);
-			else if (format[i] == '%')
-				characters_printed += print_percent();
-			else if (format[i] == 'd')
-				characters_printed += print_decimal(arg);
-			else if (format[i] == 'i')
-				characters_printed += print_decimal(arg);
-			else if (format[i] == 'b')
-				characters_printed += print_binary(arg);
-			else if (format[i] == 'u')
-				characters_printed += print_unsignedint(arg);
-			else
-			{
-				characters_printed += _putchar('%');
-				characters_printed += _putchar(format[i]);
-			}
+			characters_printed += _putchar('%');
+			characters_printed += _putchar(format[i]);
 		}
 	}
 	va_end(arg);

@@ -18,4 +18,7 @@ int print_octal(va_list arg);
 
 int _printf(const char *format, ...);
 
+
+int specifiers(char specifier, va_list arg);
+
 #endif
