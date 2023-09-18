@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	int characters_printed = 0;
 
 	va_list(arg);
-
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
@@ -39,6 +38,11 @@ int _printf(const char *format, ...)
 				characters_printed += print_binary(arg);
 			else if (format[i] == 'u')
 				characters_printed += print_unsignedint(arg);
+			else
+			{
+				characters_printed += _putchar('%');
+				characters_printed += _putchar(format[i]);
+			}
 		}
 		i++;
 	}
