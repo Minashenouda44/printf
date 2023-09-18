@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_unsigned - a function that print an unsigned number
+ * print_unsignedint - a function that print an unsigned number
  * @arg: argument
  * Return: character printed
  */
 
-int print_unsigned(va_list arg)
+int print_unsignedint(va_list arg)
 {
 	unsigned int number;
 	unsigned int digit = 0;
