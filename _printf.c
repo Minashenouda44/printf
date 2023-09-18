@@ -15,6 +15,18 @@ int _printf(const char *format, ...)
 	unsigned int r = 0, count = 0;
 	va_list args;
 
+	while (format && format[i])
+{
+	if (format[r] == '%')
+{
+	count += escape_cases(format, &r, args);
+}
+	else
+{
+	count += write(1, &format[r], 1);
+}
+	r++;
+}
 	va_start(args, format);
 	while (format && format[r])
 {
