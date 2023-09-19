@@ -24,4 +24,6 @@ int _printf(const char *format, ...);
 int print_binary(va_list arg);
 int print_hex(va_list arg);
 int print_hex_upper(va_list arg);
+int print_reversed(va_list arg);
+int print_R(va_list arg);
 #endif
