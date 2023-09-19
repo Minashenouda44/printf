@@ -20,6 +20,19 @@ int main()
 	unsigned int ui;
 	void *addr;
 
+	_printf("Character:[%c]\n", 97);
+    	printf("Character:[%c]\n", 97);
+
+	_printf("Character:[%c]\n", -97);
+        printf("Character:[%c]\n", -97);
+
+	_printf("\n");
+        printf("\n");
+
+	_printf("Unsigned Integer: %u\n", -4);
+	printf("Unsigned Integer: %u\n", -4);
+
+
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
