@@ -2,33 +2,20 @@
 
 /**
  * print_unsignedint - a function that print an unsigned number
- * @arg: argument
+ * @number: unsigned int number
  * Return: character printed
  */
 
-int print_unsignedint(va_list arg)
+int print_unsignedint(unsigned int number)
 {
-	unsigned int number;
-	unsigned int digit = 0;
 	unsigned int characters_printed = 0;
-	unsigned int buffer[20];
-	int i = 0;
-	int j = 0;
 
-	number = va_arg(arg, unsigned int);
+	if (number / 10)
+		characters_printed += print_unsignedint(number / 10);
 
-	if (number == 0)
-		characters_printed += _putchar('0');
-	else
-	{
-		while (number != 0)
-		{
-			digit = number % 10;
-			buffer[i++] = digit;
-			number /= 10;
-		}
-		for (j = i - 1 ; j >= 0 ; j--)
-			characters_printed += _putchar('0' + buffer[j]);
-	}
+	_putchar(number % 10 + '0');
+
+	characters_printed++;
+
 	return (characters_printed);
 }

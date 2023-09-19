@@ -10,11 +10,15 @@ int _putchar(char c);
 int print_char(va_list arg);
 int print_string(va_list arg);
 int print_percent(void);
-int print_decimal(va_list arg);
+int print_int(int number);
 
 int print_binary(va_list arg);
-int print_unsignedint(va_list arg);
-int print_octal(va_list arg);
+int print_unsignedint(unsigned int number);
+int print_octal(unsigned int number);
+int print_hex(unsigned int number);
+int print_HEX(unsigned int number);
+
+int print_pointer(unsigned int number);
 
 int _printf(const char *format, ...);
 

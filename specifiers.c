@@ -9,18 +9,33 @@
 
 int specifiers(char specifier, va_list arg)
 {
-	if (specifier == 'c')
-		return (print_char(arg));
-	else if (specifier == 's')
-		return (print_string(arg));
-	else if (specifier == '%')
-		return (print_percent());
-	else if (specifier == 'd' || specifier == 'i')
-		return (print_decimal(arg));
-	else if (specifier == 'b')
-		return (print_binary(arg));
-	else if (specifier == 'u')
-		return (print_unsignedint(arg));
+	int characters_printed = 0;
 
-	return (0);
+	if (specifier == 'c')
+		characters_printed += print_char(arg);
+	else if (specifier == 's')
+		characters_printed += print_string(arg);
+	else if (specifier == '%')
+		characters_printed += print_percent();
+	else if (specifier == 'd' || specifier == 'i')
+		characters_printed += print_int(va_arg(arg, int));
+	else if (specifier == 'b')
+		characters_printed += print_binary(arg);
+	else if (specifier == 'u')
+		characters_printed += print_unsignedint(va_arg(arg, unsigned int));
+	else if (specifier == 'o')
+		characters_printed += print_octal(va_arg(arg, unsigned int));
+	else if (specifier == 'x')
+		characters_printed += print_hex(va_arg(arg, unsigned int));
+	else if (specifier == 'X')
+		characters_printed += print_HEX(va_arg(arg, unsigned int));
+	else if (specifier == 'p')
+		characters_printed += print_pointer(va_arg(arg, unsigned int));
+	else
+	{
+		characters_printed += _putchar('%');
+		characters_printed += _putchar(specifier);
+	}
+
+	return (characters_printed);
 }
