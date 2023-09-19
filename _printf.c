@@ -109,6 +109,11 @@ int _printf(const char *format, ...)
 }
 	r++;
 }
+	if (format[r] == 'r')
+	characters_printed += print_reversed(arg);
+	else if (format[r] == 'R')
+	characters_printed += print_R(arg);
+
 	va_end(args);
 	return (count);
 }
