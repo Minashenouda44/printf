@@ -25,5 +25,5 @@ int print_reversed(va_list arg)
 	o += write(1, reversed, len);
 
 	free(reversed);
-	return (count);
+	return (o);
 }

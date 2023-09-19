@@ -31,5 +31,5 @@ int print_R(va_list arg)
 	o += write(1, R, len);
 
 	free(R);
-	return (count);
+	return (o);
 }
