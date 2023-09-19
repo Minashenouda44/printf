@@ -9,7 +9,8 @@
 int print_int(int number)
 {
 	int characters_printed = 0;
-
+	long num = number; 
+	
 	if (number < 0)
 	{
 		characters_printed += _putchar('-');
