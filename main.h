@@ -21,5 +21,7 @@ int print_unsignedint(va_list arg);
 int print_octal(va_list arg);
 int escape_cases(const char *format, unsigned int *r, va_list args);
 int _printf(const char *format, ...);
-
+int print_binary(va_list arg);
+int print_hex(va_list arg);
+int print_hex_upper(va_list arg);
 #endif
