@@ -13,6 +13,36 @@ int main()
 	unsigned int hex_num = 255;
 	unsigned int capital_hex_num = 255;
 
+	int len;
+	int len2;
+	unsigned int ui;
+	void *addr;
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    addr = (void *)0x7ffe637541f0;
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+
 	/* Test my custom _printf function */
 
     _printf("Custom _printf:\n");
@@ -43,12 +73,14 @@ int main()
     printf("Octal: %o\n", octal_num);
     printf("Hexadecimal: %x\n", hex_num);
     printf("Capital Hexadecimal: %X\n", capital_hex_num);
-    printf("Reverse String: %s\n", str); // %r not supported by standard printf
-    printf("Reverse Capital String: %s\n", str); // %R not supported by standard printf
+    printf("Reverse String: %s\n", str); 
+    printf("Reverse Capital String: %s\n", str); 
+
 
     /* Edge cases */
 
-    _printf("Edge Cases:\n");
+    _printf("_printf Edge Cases:\n");
+    _printf("\n");
 
     _printf("Character: %c\n", '\0');
     _printf("String: %s\n", NULL);
@@ -68,8 +100,14 @@ int main()
     _printf("Pointer: %p\n", &num);
 
 
+    printf("\n");
+
+    printf("printf Edge Cases:\n");
+    printf("\n");
+
+
     printf("Character: %c\n", '\0');
-    printf("String: %s\n", NULL);
+    /*printf("String: %s\n", NULL);*/
     printf("Pointer: %p\n", &ch);
     printf("Decimal Integer: %d\n", 0);
     printf("Unsigned Integer: %u\n", 0);
@@ -83,7 +121,7 @@ int main()
     printf("Octal: %o\n", -1);
     printf("Hexadecimal: %x\n", -1);
     printf("Capital Hexadecimal: %X\n", -1);
-    printf("Pointer: %p\n", &num);
+    /*printf("Pointer: %p\n", &num);*/
 
     return (0);
 }
