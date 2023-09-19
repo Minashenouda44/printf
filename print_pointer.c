@@ -10,6 +10,17 @@ int print_pointer(unsigned int number)
 {
 	int characters_printed = 0;
 
+	if (number == 0)
+	{
+		characters_printed += _putchar('(');
+		characters_printed += _putchar('n');
+		characters_printed += _putchar('i');
+		characters_printed += _putchar('l');
+		characters_printed += _putchar(')');
+
+		return (characters_printed);
+	}
+
 	_putchar('0');
 	characters_printed++;
 
@@ -20,5 +31,3 @@ int print_pointer(unsigned int number)
 
 	return (characters_printed);
 }
-
-
