@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	unsigned int r = 0, count = 0;
 	va_list args;
 
-	while (format && format[i])
+	while (format && format[r])
 {
 	if (format[r] == '%')
 {
@@ -31,8 +31,46 @@ int _printf(const char *format, ...)
 	while (format && format[r])
 {
 	if (format[r] == '%' && (format[r + 1] == 'c' || format[r + 1] == 's' ||
-	format[r + 1] == 'd'))
+    format[r + 1] == 'd' || format[r + 1] == 'o' || format[r + 1] == 'x' || 
+    format[r + 1] == 'X' || format[r + 1] == 'u'))
+
 {
+	if (format[r + 1] == 'c')
+{
+	char c = (char)va_arg(args, int);
+	count += write(1, &c, 1);
+	r++;
+}
+        
+	else if (format[r + 1] == 'o')
+{
+	unsigned int o = va_arg(args, unsigned int);
+	char *str = unsigned_int_to_octal_str(o);
+	if (str)
+{
+ 	count += write(1, str, strlen(str));
+	free(str);
+}
+	r++;
+}
+	else if (format[r + 1] == 'x')
+{
+}
+	else if (format[r + 1] == 'X')
+{
+}
+	else if (format[r + 1] == 'u')
+{
+	unsigned int u = va_arg(args, unsigned int);
+	char *str = unsigned_int_to_str(u);
+	if (str)
+{
+	count += write(1, str, strlen(str));
+	free(str);
+}
+	r++;
+}
+}
 	if (format[r + 1] == 'c')
 {
 	char g = (char)va_arg(args, int);
