@@ -13,7 +13,7 @@ int print_HEX(unsigned int number)
 	char heXbuffer[] = "0123456789ABCDEF";
 
 	if (number / 16)
-		characters_printed += print_hex(number / 16);
+		characters_printed += print_HEX(number / 16);
 
 	_putchar(heXbuffer[number % 16]);
 
