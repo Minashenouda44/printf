@@ -25,7 +25,13 @@ int _printf(const char *format, ...)
 {
 	r++;
 	characters_printed += specifiers(format[r], arg);
+	if (format[r] == 's' && va_arg(arg, char *) == NULL) {
+	characters_printed += _putchar('(');
+	characters_printed += _putchar(')');
+	continue;
 }
+}
+
 
 	else
 {
