@@ -20,6 +20,9 @@ int print_HEX(unsigned int number);
 
 int print_pointer(unsigned int number);
 
+int print_reversed(va_list arg);
+int print_R(va_list arg);
+
 int _printf(const char *format, ...);
 
 

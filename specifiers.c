@@ -31,6 +31,10 @@ int specifiers(char specifier, va_list arg)
 		characters_printed += print_HEX(va_arg(arg, unsigned int));
 	else if (specifier == 'p')
 		characters_printed += print_pointer(va_arg(arg, unsigned int));
+	else if (specifier == 'r')
+		characters_printed += print_reversed(arg);
+	else if (specifier == 'R')
+		characters_printed += print_R(arg);
 	else
 	{
 		characters_printed += _putchar('%');
