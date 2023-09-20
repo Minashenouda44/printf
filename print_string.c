@@ -8,7 +8,7 @@
 
 int print_string(va_list arg)
 {
-	char *string;
+	const char *string;
 	int characters_printed = 0;
 
 	string = va_arg(arg, char *);
