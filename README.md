@@ -8,7 +8,7 @@ It is inspired by the standard C printf function but has a limited set of format
 
 Usage
 
-To use the _printf function, include it in your C code and call it with the desired format specifier and arguments. 
+To use the _printf function, include it in your C code and call it with the desired format specifier and arguments.
 
 The function supports the following format specifiers:
 
@@ -32,13 +32,13 @@ This custom _printf function does not support flag characters.
 It does not handle field width or precision.
 Length modifiers (e.g., h, l, ll) are not supported.
 
-This function is still under development, and some features may not work properly. 
+This function is still under development, and some features may not work properly.
 
 
 Contact
 
-If you have any questions or encounter issues, feel free to contact the author at 
- 
+If you have any questions or encounter issues, feel free to contact the author at
+
 rokiaglal@yahoo.com
 minanadyshenouda@gmail.com
 
