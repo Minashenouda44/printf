@@ -10,7 +10,13 @@ int print_int(int number)
 {
 	int characters_printed = 0;
 
-	if (number < 0)
+	if (number == INT_MIN)
+	{
+		characters_printed += _putchar('-');
+		characters_printed += _putchar('2');
+		number = 147483648;
+	}
+	else if (number < 0)
 	{
 		characters_printed += _putchar('-');
 		number = -number;

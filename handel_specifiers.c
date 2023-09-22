@@ -30,11 +30,13 @@ int specifiers(char specifier, va_list arg)
 	else if (specifier == 'X')
 		characters_printed += print_HEX(va_arg(arg, unsigned int));
 	else if (specifier == 'p')
-		characters_printed += print_pointer(va_arg(arg, unsigned int));
+		characters_printed += print_pointer(arg);
 	else if (specifier == 'r')
 		characters_printed += print_reversed(arg);
 	else if (specifier == 'R')
 		characters_printed += print_R(arg);
+	else if (specifier == 'S')
+		characters_printed += print_S(arg);
 	else
 	{
 		characters_printed += _putchar('%');

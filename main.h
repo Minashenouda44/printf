@@ -18,7 +18,7 @@ int print_octal(unsigned int number);
 int print_hex(unsigned int number);
 int print_HEX(unsigned int number);
 
-int print_pointer(unsigned int number);
+int print_pointer(va_list arg);
 
 int print_reversed(va_list arg);
 int print_R(va_list arg);
@@ -27,5 +27,14 @@ int _printf(const char *format, ...);
 
 
 int specifiers(char specifier, va_list arg);
+
+/* new feautures header and prototypes  */
+
+#include <limits.h>
+
+int print_S(va_list arg);
+
+#include <string.h>
+
 
 #endif
